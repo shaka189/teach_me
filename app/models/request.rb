@@ -3,6 +3,7 @@ class Request < ApplicationRecord
   enum status: {Applying: 1, Done: 2}
   has_many :applies, dependent: :destroy
   has_many :appliers, -> { order free: :desc }, through: :applies, source: :user
+  has_many :comments
   belongs_to :user
   has_one :conversation, dependent: :destroy
   validates :bill, presence: true, numericality: { only_float: true },format: {with: /[0-9]*\.[0-9]*/}

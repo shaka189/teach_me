@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :requests, foreign_key: :user_id, dependent: :destroy
   has_many :send_notifications, foreign_key: :sender_id, class_name: Notification.name, dependent: :delete_all
   has_many :receive_notifications, foreign_key: :receiver_id, class_name: Notification.name, dependent: :delete_all
+  has_many :comments, foreign_key: :user_id
 
   class << self
     def from_omniauth auth

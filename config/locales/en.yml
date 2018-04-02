@@ -1,5 +1,8 @@
 en:
   date_format: "%d/%m/%Y"
+  time:
+    formats:
+      date_month_year_concise: '%d-%m-%Y'
   requests:
     show:
       no_recipients: "No recipient"
@@ -72,6 +75,12 @@ en:
       index:
         my_requests: "My requests"
         more_detail: "More detail"
+      comment:
+        ago: "ago"
+        write: "Write comment"
+        should1: "You must"
+        should2: "if you want comment"
+        login: "login"
     admin:
       diplomas:
         index:
@@ -118,6 +127,7 @@ en:
           accept_self: "You can't accept your apply"
           error_owner: "Only owner can accept"
           error_busy: "You or this applicant is in another conversation"
+      create_comment_false: "Can't create comment"
     users:
       show:
         danger: "Can't find this user"

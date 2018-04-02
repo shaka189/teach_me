@@ -50,8 +50,30 @@
         </div>
     </div>
     <% end %>
-    <div class="col-12 col-md-8">
-      <h5><b><%= t "views.requests.show.comments" %></b></h5>
+  </div>
+</div>
+<%= render "layouts/form_login" %>
+<div class="container">
+    <div class="row col-12 col-md-offset-2">
+      <h3><b><%= t "views.requests.show.comments" %></b></h3>
+    </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row fix-style-comments-section">
+        <p class="hidden" id="request-id"><%= @request.id %></p>
+        <ul id="list-comment">
+          <%= render partial: "requests/comment", collection: @comments %>
+        </ul>
+      </div>
+      <% if user_signed_in? %>
+        <div class="row">
+          <div class="col-md-12 right-chat-textbox form-comment">
+            <textarea class="form-control" id="form-comment" placeholder= "<%= t "views.requests.comment.write" %>"></textarea>
+          </div>
+        </div>
+      <% else %>
+        <p><%= t "views.requests.comment.should1" %> <%= link_to t("views.requests.comment.login"), new_user_session_path %> <%= t "views.requests.comment.should2" %></p>
+      <% end %>
     </div>
   </div>
 </div>

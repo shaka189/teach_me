@@ -1,5 +1,8 @@
 vi:
   date_format: "%d/%m/%Y"
+  time:
+    formats:
+      date_month_year_concise: '%d-%m-%Y'
   requests:
     show:
       no_recipients: "Chưa có người nhận"
@@ -72,14 +75,20 @@ vi:
       index:
         my_requests: "Những yêu cầu của tôi"
         more_detail: "Chi tiết hơn"
+      comment:
+        ago: "trước"
+        write: "Viết bình luận ....."
+        should1: "Bạn phải"
+        should2: "để có thể bình luận"
+        login: "đăng nhập"
     admin:
       diplomas:
         index:
           list_diploma: "Danh sách Bằng cấp"
           list_pending: "Bằng cấp chờ duyệt"
           list_approved: "Bằng cấp đã duyệt"
-          update_fail: "Update fail"
-          update_success: "Update success"
+          update_fail: "Cập nhật thất bại"
+          update_success: "Cập nhật thành công"
         diploma:
           un_verify: "Hủy xác thực"
           verify: "Xác thực"
@@ -91,8 +100,8 @@ vi:
         title: "Tiêu đề"
         add: "Thêm"
         image: "Ảnh"
-        create_fail: "khong tao moi duoc"
-        destroy_fail: "khong xoa duoc"
+        create_fail: "Không tạo mới được"
+        destroy_fail: "Không xóa được"
         confirm: "Bạn chắc chắn muốn xóa không?"
     conversation:
       notification-create: "ĐÃ TẠO PHÒNG CHAT"
@@ -118,6 +127,7 @@ vi:
           accept_self: "Bạn không thể tự chấp nhận ứng cử"
           error_owner: "Chỉ người yêu cầu mới được chấp nhận ứng cử"
           error_busy: "Bạn hoặc ứng cử viên này đang trong một cuộc hội thoại khác"
+      create_comment_false: "Không thể tạo comment"
     users:
       show:
         danger: "Không tìm thấy người dùng"
