@@ -39,6 +39,7 @@ class RequestsController < ApplicationController
 
   def show
     @appliers = @request.appliers
+    @comments = @request.comments
   end
 
   def destroy

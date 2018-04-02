@@ -223,3 +223,21 @@ label.error {
 #content-conversation {
   color: white;
 }
+
+.fix-style-comments-section{
+  border: 2px solid $gray-medium-light;
+  padding: 0 10px;
+}
+
+.form-comment{
+  background-color: $gray-medium-light;
+  height: 30%;
+}
+
+.review-section {
+  border-radius: 30px;
+}
+
+.comment-content {
+  word-wrap: break-word;
+}

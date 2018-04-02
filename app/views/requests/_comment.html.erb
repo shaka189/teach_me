@@ -1,0 +1,20 @@
+<li id="<%= @request.id %>">
+  <div class="review-section well" id ="comment-<%= comment.id %>">
+    <div class= "row">
+      <div class="col-md-4 user-review">
+        <div class = "bold">
+          <h4><%= (comment.user.name) %></h4>
+        </div>
+        <% if comment.created_at && comment.updated_at %>
+          <i><%= I18n.localize comment.created_at, format: :date_month_year_concise%>&nbsp</i>
+          <i><%= time_ago_in_words(comment.updated_at)%> <%= t "views.requests.comment.ago" %></i>
+        <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class = "comment-content">
+          <%= comment.content %>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
