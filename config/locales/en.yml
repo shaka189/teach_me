@@ -95,7 +95,8 @@ en:
         destroy_fail: "Destroy fail"
         confirm: "You sure?"
     conversation:
-      notification: "CREATED CONVERSATION"
+      notification-create: "CREATED CONVERSATION"
+      notification-close: "Your conversation has closed"
       show:
         content: "Content:"
         close: "Close"

@@ -95,7 +95,8 @@ vi:
         destroy_fail: "khong xoa duoc"
         confirm: "Bạn chắc chắn muốn xóa không?"
     conversation:
-      notification: "ĐÃ TẠO PHÒNG CHAT"
+      notification-create: "ĐÃ TẠO PHÒNG CHAT"
+      notification-close: "Cuộc hội thoại của bạn đã được đóng lại"
       show:
         content: "Nội dung:"
         close: "Đóng"

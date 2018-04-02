@@ -15,7 +15,9 @@ class ConversationsController < ApplicationController
   def create
     conversation = Conversation.new(newbie_id: current_user.id, expert_id: params[:applier_id], request_id: params[:request_id])
     if conversation.save
-      noti = current_user.send_notifications.create(event: t("views.conversation.notification"), receiver_id: conversation.expert_id, object_type: "conversation", object_id: conversation.id)
+      noti = current_user.send_notifications.create(event: t("views.conversation.notification-create"),
+                                                    receiver_id: conversation.expert_id, object_type: "conversation",
+                                                    object_id: conversation.id)
       ActionCable.server.broadcast "notification_conversation_channel",
                                    conversation_id: conversation.id,
                                    notification: render_notification(noti),
@@ -42,6 +44,15 @@ class ConversationsController < ApplicationController
     conversation = Conversation.find_by id: params[:id]
     redirect_to request.referrer || root_url if conversation.nil?
     if close_conversation conversation
+      if conversation.newbie? current_user.id
+        notify_to = conversation.expert.id
+      else
+        notify_to = conversation.newbie.id
+      end
+      noti = current_user.send_notifications.create(event: t("views.conversation.notification-close"),
+                                                    receiver_id: notify_to, object_type: "conversation",
+                                                    object_id: conversation.id)
+      ActionCable.server.broadcast "close_conversation_channel",notification_close: render_notification(noti), close_notify_user: notify_to
       if conversation.newbie_id == current_user.id
         redirect_to request.referrer || root_url
       else
